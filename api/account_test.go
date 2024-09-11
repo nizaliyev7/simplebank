@@ -91,9 +91,6 @@ func TestGetAccountAPI(t *testing.T) {
 			require.NoError(t, err)
 
 			server.router.ServeHTTP(recorder, request)
-
-			require.Equal(t, http.StatusOK, recorder.Code)
-			requireBodyMatchAccount(t, recorder.Body, account)
 			tc.checkResponse(t, recorder)
 		})
 	}
